@@ -1,5 +1,17 @@
 {
   "name": "docoli/tic-tac-toe",
+  "description": "Example, quick and dirty, tic-tac-toe game with websockets in php",
+  "keywords": [
+    "php",
+    "websockets",
+    "game",
+    "tic-tac-toe"
+  ],
+  "authors": [
+    {
+      "name": "Dominic Linke"
+    }
+  ],
   "require": {
     "php": ">=7.4.0",
     "cboden/ratchet": "^0.4.1",

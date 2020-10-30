@@ -11,6 +11,9 @@ This project is a small implementation as example for the usage of websockets in
 - Implement game logic for tic-tac-toe in php
 - Create a tiny frontend with tic-tac-toe typically look
 
+## Result
+![](example/gameplay.gif)
+
 ## Development
 Start the socket server with:
 - Step 1:
@@ -21,6 +24,14 @@ php bin/socket-server.php
 
 
 ## Docker
-Build the image and start the container:
+Build the images and starts the containers:
 
-`docker-compose build && docker-compose up -d`
+`docker-compose up -d`
+
+## Vagrant
+If you don't have docker installed but vagrant is available just use it with:
+`vagrant up`
+
+It will install docker and docker-compose and run `docker-compose up -d` command afterwards.
+
+Info: Not tested so far because i run docker on my machine and no vagrant ;)

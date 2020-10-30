@@ -1,8 +1,34 @@
 version: '3.7'
 services:
   app:
+    container_name: tictactoe_websocket
+    hostname: tictactoe_websocket
+    restart: always
     build:
       context: .
-      dockerfile: .docker/Dockerfile
+      dockerfile: .docker/php/Dockerfile
+    entrypoint: php /srv/app/bin/socket-server.php
+    networks:
+      - tictactoe-network
+
+  nginx:
+    container_name: tictactoe_nginx
+    hostname: tictactoe_nginx
+    restart: always
+    build:
+      context: .
+      dockerfile: .docker/nginx/Dockerfile
     ports:
-    - 80:80
+      - 80:80
+      - 1337:1337
+    depends_on:
+      - app
+    networks:
+      - tictactoe-network
+
+networks:
+  tictactoe-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.6.0.0/24
