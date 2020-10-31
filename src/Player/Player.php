@@ -10,6 +10,9 @@ use Ratchet\WebSocket\WsConnection;
 class Player
 {
 
+    public const PLAYER_X = 'x';
+    public const PLAYER_O = 'o';
+
     private int $resourceId;
     private string $playerChar;
     private ConnectionInterface $webSocket;
@@ -20,7 +23,7 @@ class Player
      * @param $resourceId
      * @param ConnectionInterface $webSocket
      */
-    public function __construct($resourceId, ConnectionInterface $webSocket)
+    public function __construct(int $resourceId, ConnectionInterface $webSocket)
     {
         $this->resourceId = $resourceId;
         $this->webSocket = $webSocket;
@@ -71,9 +74,14 @@ class Player
      * @param string $playerChar
      *
      * @return Player|null
+     * @throws \Exception
      */
     public function getPlayerByChar(string $playerChar): ?Player
     {
+        if ($playerChar !== self::PLAYER_X || $playerChar !== self::PLAYER_O) {
+            throw new \Exception('Player char is either x or o');
+        }
+
         if ($this->getPlayerChar() === $playerChar) {
             return $this;
         }
