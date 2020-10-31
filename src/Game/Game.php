@@ -136,16 +136,23 @@ class Game
      *
      * @param string $playerChar
      * @return Player
+     * @throws \Exception
      */
     public function getPlayerByChar(string $playerChar): Player
     {
-        if ($this->getPlayer1()->getPlayerChar() === $playerChar) {
-            return $this->getPlayer1();
+        $player1 = $this->getPlayer1()->getPlayerByChar($playerChar);
+
+        if ($player1 !== null) {
+            return $player1;
         }
 
-        if ($this->getPlayer2()->getPlayerChar() === $playerChar) {
-            return $this->getPlayer2();
+        $player2 = $this->getPlayer2()->getPlayerByChar($playerChar);
+
+        if ($player2 !== null) {
+            return $player2;
         }
+
+        throw new \Exception('No players assigned with char ' . $playerChar);
     }
 
     /**

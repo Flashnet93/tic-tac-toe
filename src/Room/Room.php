@@ -40,9 +40,9 @@ class Room
         $this->players[$resourceId] = $this->player;
 
         if ($this->playerCount === 1) {
-            $this->player->setPlayerChar('o');
+            $this->player->setPlayerChar(Player::PLAYER_O);
         } else {
-            $this->player->setPlayerChar('x');
+            $this->player->setPlayerChar(Player::PLAYER_X);
         }
 
         $this->send('info', 'Player ' . $this->player->getPlayerChar() . ' has joined.');
@@ -147,7 +147,6 @@ class Room
                 break;
             }
 
-            $count++;
             return $player;
         }
     }
@@ -167,7 +166,6 @@ class Room
                 continue;
             }
 
-            $count++;
             return $player;
         }
     }
