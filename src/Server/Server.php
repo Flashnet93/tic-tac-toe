@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace TicTacToe\Server;
 
-use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
+use Ratchet\MessageComponentInterface;
 use TicTacToe\Game\Game;
 use TicTacToe\Room\Room;
 
@@ -17,8 +17,7 @@ class Server implements MessageComponentInterface
 
     private \SplObjectStorage $clients;
 
-    /** @var Room[]
-     */
+    /** @var Room[] */
     private array $rooms;
 
     /** @var Game[] */

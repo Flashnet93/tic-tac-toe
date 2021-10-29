@@ -6,6 +6,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 use Ratchet\ConnectionInterface;
 use TicTacToe\Game\Game;
 use PHPUnit\Framework\TestCase;
+use TicTacToe\Player\Player;
 use TicTacToe\Room\Room;
 
 class GameTest extends TestCase
@@ -182,8 +183,10 @@ class GameTest extends TestCase
 
     public function testGetPlayerByChar()
     {
-        self::assertSame($this->game->getPlayer1(), $this->game->getPlayerByChar('o'));
-        self::assertSame($this->game->getPlayer2(), $this->game->getPlayerByChar('x'));
+        var_dump($this->game->getPlayer1()->getPlayerChar());
+        var_dump($this->game->getPlayer2()->getPlayerChar());
+        self::assertSame($this->game->getPlayer1(), $this->game->getPlayerByChar(Player::PLAYER_O));
+        self::assertSame($this->game->getPlayer2(), $this->game->getPlayerByChar(Player::PLAYER_X));
     }
 
 }

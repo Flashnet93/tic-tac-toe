@@ -10,7 +10,7 @@ use TicTacToe\Room\Room;
 class Game
 {
 
-    private ?array $field = [
+    private array $field = [
         1 => '',
         2 => '',
         3 => '',

@@ -1,4 +1,4 @@
-var log = function (msg) {
+let log = function (msg) {
     $('#error').html('<div class="alert alert-danger" role="alert">' + msg + '</div>');
 };
 
@@ -6,7 +6,7 @@ let urlParams = new URLSearchParams(window.location.search);
 let room = urlParams.get('game');
 let playerChar = '';
 let field;
-var conn = new WebSocket('ws://localhost:1337');
+const conn = new WebSocket('ws://localhost:1337');
 
 conn.onopen = function (e) {
     log("Connection established!");
@@ -15,7 +15,6 @@ conn.onopen = function (e) {
 conn.onmessage = function (e) {
 
     let data;
-    // console.log(e.data);
     $('#yourChecker')[0].innerHTML = this.playerChar;
 
     data = JSON.parse(e.data);
