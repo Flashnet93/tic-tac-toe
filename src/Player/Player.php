@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace TicTacToe\Player;
 
 use Ratchet\ConnectionInterface;
-use Ratchet\WebSocket\WsConnection;
 
 class Player
 {
@@ -78,7 +77,7 @@ class Player
      */
     public function getPlayerByChar(string $playerChar): ?Player
     {
-        if ($playerChar !== self::PLAYER_X || $playerChar !== self::PLAYER_O) {
+        if ($playerChar !== self::PLAYER_X && $playerChar !== self::PLAYER_O) {
             throw new \Exception('Player char is either x or o');
         }
 
