@@ -200,4 +200,10 @@ modules.xml
 # Sonarlint plugin
 .idea/sonarlint
 
+# temp
+tmp/
+
+# composer vendor
+vendor/
+
 # End of https://www.toptal.com/developers/gitignore/api/phpstorm+all,node
