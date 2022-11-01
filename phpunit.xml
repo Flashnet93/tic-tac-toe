@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+         backupGlobals="true" verbose="true" beStrictAboutTestsThatDoNotTestAnything="false" executionOrder="random">
+
+    <php>
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="disabled"/>
+    </php>
+
+    <coverage includeUncoveredFiles="false" processUncoveredFiles="false">
+        <include>
+            <directory suffix=".php">./src</directory>
+        </include>
+    </coverage>
+    <logging>
+        <junit outputFile="./tmp/phpunit/junit.xml"/>
+    </logging>
+    <testsuites>
+        <testsuite name="all">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
